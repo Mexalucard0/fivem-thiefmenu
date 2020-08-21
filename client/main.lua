@@ -1,6 +1,5 @@
-local PlayerData, CurrentActionData, handcuffTimer, dragStatus, blipsCops, currentTask, spawnedVehicles = {}, {}, {}, {}, {}, {}, {}
-local HasAlreadyEnteredMarker, isDead, IsHandcuffed, hasAlreadyJoined, playerInService, isInShopMenu = false, false, false, false, false, false
-local LastStation, LastPart, LastPartNum, LastEntity, CurrentAction, CurrentActionMsg
+local PlayerData, CurrentActionData, handcuffTimer, dragStatus = {}, {}, {}, {}
+local IsHandcuffed = false
 dragStatus.isDragged = false
 ESX = nil
 blip = nil
@@ -19,7 +18,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
         Citizen.Wait(0)
-        if IsControlJustReleased(0, 168) and not isDead  then
+	local playerPed = GetPlayerPed(-1)
+        if IsControlJustReleased(0, 168) and not IsEntityDead(playerPed)  then
 				OpenSearchActionsMenu()
         end
     end
