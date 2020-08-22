@@ -55,7 +55,13 @@ function OpenSearchActionsMenu()
 				playerCoords = GetEntityCoords(GetPlayerPed(-1))
 				local target_id = GetPlayerServerId(target)
 				if distance <= 2.0 then
-					TriggerServerEvent('esx_okradanie:requestarrest', target_id, playerheading, playerCoords, playerlocation)
+					ESX.TriggerServerCallback('esx_okradanie:sitem', function(quantity)
+						if quantity > 0 then
+							TriggerServerEvent('esx_okradanie:requestarrest', target_id, playerheading, playerCoords, playerlocation)
+						else
+							ESX.ShowNotification('Nemas u sebe pouta')
+						end
+					end, 'handcuffs') --change item needed for cuff here
 				end
 			elseif data.current.value == 'uncuff' then
 				local target, distance = ESX.Game.GetClosestPlayer()
@@ -64,7 +70,13 @@ function OpenSearchActionsMenu()
 				playerCoords = GetEntityCoords(GetPlayerPed(-1))
 				local target_id = GetPlayerServerId(target)
 				if distance <= 2.0 then
-					TriggerServerEvent('esx_okradanie:requestrelease', target_id, playerheading, playerCoords, playerlocation)
+					ESX.TriggerServerCallback('esx_okradanie:sitem', function(quantity)
+						if quantity > 0 then
+							TriggerServerEvent('esx_okradanie:requestrelease', target_id, playerheading, playerCoords, playerlocation)
+						else
+							ESX.ShowNotification('You dont have keys')
+						end
+					end, 'handcuffkeys') --change item needed for uncuff here.
 				end
 			elseif data.current.value == 'drag' then
 				TriggerServerEvent('esx_okradanie:drag', GetPlayerServerId(closestPlayer))

@@ -51,3 +51,9 @@ RegisterServerEvent('esx_okradanie:message')
 AddEventHandler('esx_okradanie:message', function(target, msg)
 	TriggerClientEvent('esx:showNotification', target, msg)
 end)
+
+ESX.RegisterServerCallback('esx_okradanie:sitem', function(source, cb, item)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local quantity = xPlayer.getInventoryItem(item).count
+    cb(quantity)
+end)
