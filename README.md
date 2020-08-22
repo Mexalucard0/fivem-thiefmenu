@@ -9,6 +9,6 @@ There is no locales file, you need to change language directly in client/main.lu
 
 If you have any issues report it here on github and i will fix it ASAP!
 
-NOTE: It's created from esx_policejob.
+NOTE: It's created from esx_policejob. https://github.com/esx-framework/esx_policejob/
 
 This version is without item needed for cuff and uncuff player.
