@@ -11,4 +11,4 @@ If you have any issues report it here on github and i will fix it ASAP!
 
 NOTE: It's created from esx_policejob. https://github.com/esx-framework/esx_policejob/
 
-This version is without item needed for cuff and uncuff player.
+This version is without item needed for cuff and uncuff player, if you want to have it with item you can use this: https://github.com/cshonza/fivem-thiefmenu/tree/withitem
